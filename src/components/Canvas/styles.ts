@@ -26,8 +26,9 @@ export const StyledCanvas = styled.div<CanvasProps>`
   background-size: 20px 20px;
   position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 100px;
   min-width: 100%;
   transform-origin: center center;
   transition: transform 0.1s ease-out;
