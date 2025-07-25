@@ -37,7 +37,7 @@ export const StyledDraggableBox = styled.div<StyledDraggableBoxProps>`
     props.$isDragging &&
     `
     cursor: grabbing;
-    transform: rotate(5deg);
+    transform: rotate(5deg) !important;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     opacity: 0.5;
   `}
