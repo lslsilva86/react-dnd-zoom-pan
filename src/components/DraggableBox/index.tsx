@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSortable } from '@dnd-kit/sortable';
-import { CSS } from '@dnd-kit/utilities';
 import { StyledDraggableBox } from './styles';
 
 interface DraggableBoxProps {
@@ -20,18 +19,14 @@ export const DraggableBox: React.FC<DraggableBoxProps> = ({
     attributes,
     listeners,
     setNodeRef,
-    transform,
-    transition,
     isDragging,
     isOver,
   } = useSortable({ id });
 
-  // Disable transform animations when zoomed to prevent items moving too far
-  const shouldDisableTransform = scale !== 1;
-  
+  // Always disable transform to prevent boxes from moving, only show highlighting
   const style = {
-    transform: shouldDisableTransform ? undefined : CSS.Transform.toString(transform),
-    transition: shouldDisableTransform ? undefined : transition,
+    transform: 'none',
+    transition: 'none',
   };
 
   return (
