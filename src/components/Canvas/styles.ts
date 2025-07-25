@@ -106,8 +106,9 @@ export const DragOverlayBox = styled.div<{ $scale: number }>`
   border-radius: 8px;
   padding: 15px 20px;
   font-weight: bold;
-  min-width: 80px;
+  width: 200px;
   text-align: center;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   transform: scale(${(props) => props.$scale}) rotate(5deg);
+  transform-origin: center center;
 `;

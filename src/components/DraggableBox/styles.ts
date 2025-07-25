@@ -15,7 +15,7 @@ export const StyledDraggableBox = styled.div<StyledDraggableBoxProps>`
   font-weight: bold;
   cursor: grab;
   user-select: none;
-  min-width: 80px;
+  width: 200px;
   text-align: center;
   transition: all 0.2s ease;
   position: relative;
