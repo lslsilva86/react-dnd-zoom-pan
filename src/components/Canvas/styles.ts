@@ -54,7 +54,7 @@ export const HorizontalContainer = styled.div`
   pointer-events: auto;
 `;
 
-export const DraggableContainer = styled.div`
+export const DraggableContainer = styled.div<{ $scale?: number }>`
   display: flex;
   gap: 10px;
   min-height: 60px;
@@ -67,12 +67,14 @@ export const DraggableContainer = styled.div`
     position: absolute;
     left: -7px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%)
+      scaleX(${(props) => (props.$scale ? 1 / props.$scale : 1)});
     width: 4px;
     height: 40px;
     background-color: transparent;
     border-radius: 2px;
     transition: background-color 0.2s ease;
+    transform-origin: center center;
   }
 
   &.drop-indicator-left::before {
@@ -85,12 +87,14 @@ export const DraggableContainer = styled.div`
     position: absolute;
     right: -7px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%)
+      scaleX(${(props) => (props.$scale ? 1 / props.$scale : 1)});
     width: 4px;
     height: 40px;
     background-color: transparent;
     border-radius: 2px;
     transition: background-color 0.2s ease;
+    transform-origin: center center;
   }
 
   &.drop-indicator-right::after {

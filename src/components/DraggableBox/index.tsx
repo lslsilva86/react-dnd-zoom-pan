@@ -7,12 +7,14 @@ interface DraggableBoxProps {
   id: string;
   content: string;
   isOverlay?: boolean;
+  scale?: number;
 }
 
 export const DraggableBox: React.FC<DraggableBoxProps> = ({ 
   id, 
   content, 
-  isOverlay = false 
+  isOverlay = false,
+  scale = 1
 }) => {
   const {
     attributes,
@@ -24,9 +26,12 @@ export const DraggableBox: React.FC<DraggableBoxProps> = ({
     isOver,
   } = useSortable({ id });
 
+  // Disable transform animations when zoomed to prevent items moving too far
+  const shouldDisableTransform = scale !== 1;
+  
   const style = {
-    transform: CSS.Transform.toString(transform),
-    transition,
+    transform: shouldDisableTransform ? undefined : CSS.Transform.toString(transform),
+    transition: shouldDisableTransform ? undefined : transition,
   };
 
   return (

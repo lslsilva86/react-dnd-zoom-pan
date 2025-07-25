@@ -58,12 +58,13 @@ export const Canvas: React.FC<CanvasProps> = ({
           </StaticBox>
           
           <SortableContext items={items.map(item => item.id)} strategy={horizontalListSortingStrategy}>
-            <DraggableContainer>
+            <DraggableContainer $scale={transform.scale}>
               {items.map((item) => (
                 <DraggableBox
                   key={item.id}
                   id={item.id}
                   content={item.content}
+                  scale={transform.scale}
                 />
               ))}
             </DraggableContainer>
